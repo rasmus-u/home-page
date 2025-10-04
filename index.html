@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ra.smus.fi</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='white'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='12' fill='black'>R</text></svg>">
+
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Share Tech", sans-serif;
+      font-size: 18px;
+      background-color: #fff;
+      color: #000;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 5rem 2rem 0.5rem 2rem;
+      justify-content: center;
+      align-items: center;
+      display: grid;
+      flex-direction: column;
+      border-bottom: 1px solid #f2f2f2;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.0rem;
+    }
+    .about {
+      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      gap: 0.5rem;
+      margin-top: 3rem;
+      margin-bottom: 0.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    section {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    section h2 {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      font-size: 1.3rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+    ul {
+      margin-top: 0;
+    }
+    a {
+      color: #458cfe;
+      text-decoration: underline;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(29, 15px);
+      grid-template-rows: repeat(5, 15px);
+      gap: 1px;
+    }
+    .cell {
+      width: 15px;
+      height: 15px;
+      background: #eee;
+      transition: background 0.3s;
+    }
+    .cell.active {
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="grid" id="grid"></div>
+    <div class="about">
+      <span>ra.smus.fi</span>
+      <a href="https://www.linkedin.com/in/rasmus-uusipaikka/" target="_blank">linkedin</a>
+      <a href="https://github.com/rasmus-u" target="_blank">github</a>
+    </div>
+  </header>
+
+  <section id="work">
+    <h2>Me:</h2>
+    <ul>
+      <li>22yo, Studying IEM and CS at <a href="https://www.aalto.fi" target="_blank">aalto.fi</a></li>
+      <li>Solo-built industry leading market intelligence platform for 🇫🇮 healthcare tender results <a href="https://www.sotehankinnat.fi" target="_blank">sotehankinnat.fi</a></li>
+      <li>Building autonomous polling and market intelligence <a href="https://www.ailowise.com" target="_blank">ailowise.com</a></li>
+      <li>Aalto Founder Sprint Cohort 1.0</li>
+    </ul>
+  </section>
+
+  <section id="study">
+    <h2>Previously:</h2>
+    <ul>
+      <li>Graduated top 0.1% at Maths (out of 15 000) and top 0.2% at Physics (out of 11 000) in 🇫🇮</li>
+      <li>8 months in management consulting at <a href="https://www.valor.fi" target="_blank">valor.fi</a></li>
+      <li>Built sidewalk robot deliveries with technical implementation and 200 signups within 24hrs at <a href="https://www.huuva.io" target="_blank">huuva.io</a></li>
+    </ul>
+  </section>
+
+  <section id="now">
+    <h2>Right now I love:</h2>
+    
+    <ul>
+      <li><strong>Tech stack:</strong> Next.js, FastAPI, AWS, PostgreSQL, Docker, Git, and more</li>
+      <li><strong>Focus:</strong> Building beautiful products and biz dev</li>
+      <li><strong>Books:</strong> <a href="https://www.indexventures.com/winning-in-the-us/" target="_blank">Winning in the US</a>, <a href="https://otava.fi/kirjat/woltin-tarina/" target="_blank">Woltin tarina</a>, <a href="https://classics.mit.edu/Tzu/artwar.html" target="_blank">Art of War</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Rasmus</p>
+  </footer>
+
+  <script>
+    const grid = document.getElementById("grid");
+    const rows = 5;
+    const cols = 29;
+    const cells = [];
+
+    for (let r = 0; r < rows; r++) {
+      cells[r] = [];
+      for (let c = 0; c < cols; c++) {
+        const div = document.createElement("div");
+        div.className = "cell";
+        grid.appendChild(div);
+        cells[r][c] = div;
+      }
+    }
+
+    const bitmap = [
+      "111100110011110100010100101111",
+      "100101001010000110110100101000",
+      "111001111011110101010100101111",
+      "10010100100001010001010010001",
+      "100101001011110100010111101111"
+    ];
+
+    bitmap.forEach((row, r) => {
+      [...row].forEach((char, c) => {
+        if (char === "1") {
+          rows_from_senter = Math.abs(r - rows / 2);
+          cols_from_senter = Math.abs(c - cols / 2);
+          const delay = 400 + 6000 * rows_from_senter / rows * cols_from_senter / cols;
+          setTimeout(() => {
+            cells[r][c].classList.add("active");
+          }, delay);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
