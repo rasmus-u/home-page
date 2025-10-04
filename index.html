@@ -75,7 +75,7 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(29, 12px);
+      grid-template-columns: repeat(30, 12px);
       grid-template-rows: repeat(5, 12px);
       gap: 0.5px;
     }
@@ -136,7 +136,7 @@
   <script>
     const grid = document.getElementById("grid");
     const rows = 5;
-    const cols = 29;
+    const cols = 30;
     const cells = [];
 
     for (let r = 0; r < rows; r++) {
@@ -150,11 +150,11 @@
     }
 
     const bitmap = [
-      "111100110011110100010100101111",
-      "100101001010000110110100101000",
-      "111001111011110101010100101111",
-      "10010100100001010001010010001",
-      "100101001011110100010111101111"
+      "1111001100111101000101001011111",
+      "1001010010100001101101001010000",
+      "1110011110111101010101001011111",
+      "100101001000010100010100100001",
+      "1001010010111101000101111011111"
     ];
 
     bitmap.forEach((row, r) => {
